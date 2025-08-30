@@ -16,7 +16,13 @@ class Job extends Model
         'salary',
     ];
 
-    public function employer() {
+    public function employer()
+    {
         return $this->belongsTo(Employer::class);
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, foreignPivotKey: "job_listing_id");
     }
 }
